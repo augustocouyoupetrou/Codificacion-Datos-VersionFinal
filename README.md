@@ -25,8 +25,7 @@ FileReader API, CSS plano.
 
 ## Requisitos previos
 
-- Node.js 18 o superior (se usa `fetch` nativo en el frontend y `node --watch`
-  como opción de desarrollo en el backend).
+- Node.js 18 o superior.
 - npm (incluido con Node.js).
 
 ```bash
@@ -78,9 +77,6 @@ desarrollo.
 > que ya existía) en lugar de fallar en silencio.
 
 ## Cómo usar la aplicación
-
-El uso es exactamente el mismo que en la versión anterior (solo cambió dónde
-se ejecuta el procesamiento, no la experiencia):
 
 1. Escriba texto o cargue un archivo `.txt` (hay ejemplos en `frontend/ejemplos/`).
 2. Elija Huffman o Shannon-Fano.
@@ -199,28 +195,7 @@ huffman-shannon-app/
             └── compressionRoutes.js
 ```
 
-## Qué cambió respecto a la versión solo-frontend
-
-- **Se movió al backend, sin cambios de lógica**: `algorithms/huffman.js`,
-  `algorithms/shannonFano.js`, `utils/frequency.js`, `utils/metrics.js`. El
-  único cambio mecánico fue agregar la extensión `.js` a dos líneas de
-  import (`huffman.js` y `shannonFano.js`), un requisito de los módulos ES
-  nativos de Node, no un cambio de comportamiento.
-- **Se mantuvo sin cambios**: los 10 componentes de React, `App.css`,
-  `index.css`, `index.js`, `formatChar.js`, `chartSetup.js`,
-  `public/index.html` y los archivos de ejemplo.
-- **Se modificó de forma acotada**: `App.jsx` — solo las funciones
-  `handleCompress` y `handleDecompress` pasaron de llamar funciones locales
-  a llamar al nuevo cliente HTTP (`compressionApi.js`); el resto del
-  componente (estados, JSX, resto de los handlers) es idéntico.
-- **Es nuevo**: `frontend/src/services/compressionApi.js` (cliente HTTP),
-  `backend/server.js`, `backend/src/routes/compressionRoutes.js` y
-  `backend/src/controllers/compressionController.js`.
-
 ## Notas sobre el cálculo de métricas
-
-(Sin cambios respecto a la versión anterior, solo que ahora se calculan en
-el backend en vez del navegador.)
 
 - El **tamaño original** se calcula en bytes reales codificando el texto en
   UTF-8 (`TextEncoder`, disponible también en Node.js de forma nativa), no
