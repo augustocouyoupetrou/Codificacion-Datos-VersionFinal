@@ -1,5 +1,11 @@
 # Codificación de Datos — Huffman y Shannon-Fano (Frontend + Backend)
 
+**Grupo 4**<br>
+**Integrantes:**<br>
+- Augusto Couyoupetrou 
+- Lucio Cantalupo 
+- Ciro Centurion
+
 Aplicación web para el Trabajo Práctico de **Comunicación de Datos**. Permite
 comprimir y descomprimir texto con los algoritmos **Huffman** y
 **Shannon-Fano**, mostrando métricas y gráficos (Chart.js) de eficiencia de
@@ -9,15 +15,6 @@ Arquitectura **frontend + backend**: el frontend (React) es una interfaz que
 solo muestra datos; toda la codificación, decodificación y el cálculo de
 métricas se ejecutan en el backend (Node.js + Express), expuestos como una
 API REST que el frontend consume por HTTP.
-
-```
-Frontend (React)            HTTP REST (JSON)            Backend (Node + Express)
-Componentes + App.jsx  ───────────────────────────►   Rutas + Controller
-        ▲                                                      │
-        │                                                      ▼
-        └──────────────────────────────────────────  Algoritmos (Huffman /
-                     Respuesta JSON                    Shannon-Fano) + métricas
-```
 
 ## Tecnologías utilizadas
 
